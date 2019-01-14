@@ -1823,6 +1823,7 @@ __webpack_require__.r(__webpack_exports__);
     fetchComments: function fetchComments(page_url) {
       var _this = this;
 
+      console.log('hej');
       var vm = this;
       page_url = page_url || 'api/comments';
       fetch(page_url).then(function (res) {

@@ -60,6 +60,7 @@ export default {
     methods: {
         
         fetchComments(page_url) {
+            console.log('hej');
             let vm = this;
             page_url = page_url || 'api/comments'
             fetch(page_url)
