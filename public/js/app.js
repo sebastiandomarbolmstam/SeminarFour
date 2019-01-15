@@ -1802,6 +1802,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['recipe'],
   data: function data() {
     return {
       comments: [],
@@ -1809,7 +1810,7 @@ __webpack_require__.r(__webpack_exports__);
         id: '',
         uid: '',
         message: '',
-        recipe: ''
+        recipe: this.recipe
       },
       comment_id: '',
       pagination: {},
@@ -1817,16 +1818,15 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    this.fetchComments();
+    this.fetchComments(this.recipe);
   },
   methods: {
-    fetchComments: function fetchComments(page_url) {
+    fetchComments: function fetchComments(recipe) {
       var _this = this;
 
-      console.log('hej');
-      var vm = this;
-      page_url = page_url || 'api/comments';
-      fetch(page_url).then(function (res) {
+      var vm = this; //page_url = page_url || 'api/comments'
+
+      fetch("api/comments/".concat(recipe)).then(function (res) {
         return res.json();
       }).then(function (res) {
         _this.comments = res.data;
@@ -36958,6 +36958,22 @@ var staticRenderFns = [
         _c("div", { staticClass: "container" }, [
           _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
             _vm._v("Tasty Recipes")
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "nav-link", attrs: { href: "/" } }, [
+            _vm._v("Home")
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "nav-link", attrs: { href: "/calendar" } }, [
+            _vm._v("Calendar")
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "nav-link", attrs: { href: "/meatballs" } }, [
+            _vm._v("Swedish Meatballs")
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "nav-link", attrs: { href: "/pancakes" } }, [
+            _vm._v("American Pancakes")
           ])
         ])
       ]

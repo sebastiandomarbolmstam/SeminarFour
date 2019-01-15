@@ -14,9 +14,9 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($recipe)
     {
-        $comments = Comment::orderBy('created_at', 'desc')->paginate(5);
+        $comments = Comment::where('recipe', $recipe)->orderBy('created_at', 'desc')->paginate(5);
 
         return CommentResource::collection($comments);
     }

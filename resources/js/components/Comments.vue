@@ -38,6 +38,7 @@
 
 <script>
 export default {
+    props: ['recipe'],
     data() {
         return{
             comments: [],
@@ -45,7 +46,7 @@ export default {
                 id: '',
                 uid: '',
                 message: '',
-                recipe: ''
+                recipe: this.recipe
             },
             comment_id: '',
             pagination: {},
@@ -54,16 +55,15 @@ export default {
     },
     
     created() {
-        this.fetchComments();
+        this.fetchComments(this.recipe);
     },
 
     methods: {
         
-        fetchComments(page_url) {
-            console.log('hej');
+        fetchComments(recipe) {
             let vm = this;
-            page_url = page_url || 'api/comments'
-            fetch(page_url)
+            //page_url = page_url || 'api/comments'
+            fetch(`api/comments/${recipe}`)
                 .then(res => res.json())
                 .then(res => {
                     this.comments = res.data;

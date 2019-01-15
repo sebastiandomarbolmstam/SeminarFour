@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 //List comments
-Route::get('comments', 'CommentController@index');
+Route::get('comments/{recipe}', 'CommentController@index');
 
 //List single comment
 Route::get('comment/{id}', 'CommentController@show');
