@@ -51,8 +51,12 @@
             <li class='ins-li'>Serve the meatballs with potatoes, lingonberry jam and pickled cucumber.</li>
         </ul>
     </div>
-    <div class="container">
-    <comments :recipe="'{{$title}}'"></comments>
+    <div class="comment-container">
+        @guest
+            <guest :recipe="'{{$title}}'"></guest>
+        @else
+            <comments :recipe="'{{$title}}'" :user="'{{Auth::user()->name}}'"></comments>
+        @endguest
     </div>
 </div>
 @endsection

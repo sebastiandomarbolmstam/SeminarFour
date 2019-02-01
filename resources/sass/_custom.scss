@@ -1,0 +1,361 @@
+//General Style
+
+body {
+  background-color: #00cc88;
+  font-family: 'Fondamento', cursive;
+  color: darkslategray;  
+}
+
+//Top Border Style
+
+.flex-header {
+  background-color: darkslategray;
+  display: flex;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 140px;
+  font-family: "Great Vibes", cursive;
+  font-size: 48px;
+  color: darkgoldenrod;
+  padding: 10px;
+}
+
+//Navbar Style
+
+.navbar-container {
+  position: absolute !important;
+  top: 72px !important;
+}
+
+.nav-link.active{
+  background-color: #00cc88;
+}
+
+.navbar-container a {
+  text-decoration: none;
+  background-color: aquamarine;
+  padding: 12px 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.navbar{
+  padding-bottom: 0;
+  padding-left: 0;
+}
+
+.navbar-container li {
+  float: left;
+  margin: 0;
+}
+
+a:hover {
+  background-color: #00cc88;
+}
+
+a:visited {
+  color: darkslategray;
+}
+
+a:active {
+  background-color: aquamarine;
+}
+
+.right{
+  position: absolute;
+  right: 0;
+}
+
+//Index Page Main Content Style
+
+.main-container {
+  position: absolute;
+  top: 200px;
+  padding-top: 100px;
+  background-color: #00cc88;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.main-container h2, .main-container h3 {
+  margin: 0;
+  padding: 5px;
+}
+
+.main-container h2 {
+  font-size: 23px;
+}
+
+.main-container h3 {
+  font-size: 16px;
+}
+
+.main-container h4 {
+  color: darkred;
+  font-size: 12px;
+  padding: 15px;
+}
+
+//Recipe Pages Main Content Style
+
+.recipe-container {
+  position: absolute;
+  top: 140px;
+  display: grid;
+  grid-gap: 10px;
+  padding: 20px;
+  justify-content: flex-start;
+}
+
+.headline {
+  font-size: 20px !important;
+  padding-bottom: 5px !important;
+}
+
+.subline {
+  font-size: 18px !important;
+  padding-top: 10px !important;
+  padding-bottom: 5px !important;
+}
+
+.description {
+  background-color: aquamarine !important;
+  align-items: center !important;
+  padding: 20px !important;
+  font-size: 16px !important;
+  border-radius: 10px !important;
+}
+
+.text {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+}
+
+.pic {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  background-color: darkgoldenrod !important;
+}
+
+.recipe-container .picture {
+  height: 400px;
+  width: auto;
+  border-radius: 10px;
+}
+
+.ingredients {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.instructions {
+  grid-column: 4;
+  grid-row: 1;
+}
+
+.recipe-list {
+  list-style-type: disc;
+  list-style-position: outside;
+  padding-left: 0;
+  font-size: 12px;
+}
+
+.ing-li {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.ins-li {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.comment-container {
+  height: auto;
+  background-color: aquamarine;
+  grid-row: 2;
+  grid-column: 1 / 5;
+  border-radius: 10px;
+  padding: 20px;
+  align-items: center;
+}
+
+.comment-box {
+  height: auto;
+  margin: 0;
+  grid-column: 1 / 5;
+  background-color: aquamarine;
+  border-radius: 10px;
+  display: block; 
+}
+
+textarea {
+  width: 400px !important;
+  height: 100px !important;
+  margin-bottom: 15px;
+  padding: 15px;
+  resize: none;
+  border: none;
+  border-radius: 10px;
+}
+
+button:hover{
+  background-color: aquamarine;
+}
+
+.username{
+  color: darkred;
+  font-size: 18px;
+  padding-top: 15px;
+  padding-left: 15px;
+}
+.row{
+  padding-left: 15px !important;
+}
+
+.date{
+  font-size: 12px;
+  padding-top: 17px;
+  padding-left: 15px;
+  text-decoration: none;
+}
+
+.message {
+  font-size: 13px;
+  padding-left: 15px;
+  padding-top: 0;
+  padding-bottom: 15px;
+}
+
+//Calendar Main Content Style
+
+.last-week{
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.calendar-week, .calendar-header{
+  display: grid;
+  grid-template-columns: repeat(7,1fr);
+  background-color: aquamarine;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.calendar-week {
+  grid-auto-rows: 200px;
+  text-align: right;
+  border-radius: 10px;
+}
+
+.calendar-header {
+  grid-auto-rows: 50px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding-top: 20px;
+  border-radius: 10px;
+}
+
+.calendar-day {
+  padding: 16px;
+  border-right: 1px solid darkslategray;
+  border-top: 1px solid darkslategray;
+}
+
+.calendar-grid {
+  position: absolute;
+  top: 140px;
+  padding: 20px;
+  padding-top: none;
+  background-color: #00cc88;
+}
+
+.calendar_header {
+  text-transform: uppercase;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.calendar-day:last-child {
+  border-right: 0;
+}
+
+.booked-day {
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  grid-template-rows: repeat(6,1fr);
+}
+
+.number {
+  grid-column: 1 / span 5;
+  grid-row: 1;
+}
+
+.image {
+  grid-column: 3;
+  grid-row: 2 / span 4;
+}
+.picture {
+  height: auto;
+  width: 125px;
+}
+
+.image:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.pancake-picture {
+  height: 130px;
+  width: auto;
+}
+
+.food-text {
+  background-color: aquamarine;
+  grid-column: 3;
+  grid-row: 6;
+  text-align: center;
+}
+
+.container {
+  position: absolute;
+  top: 200px;
+}
+
+//forms
+
+.card {
+  background-color: aquamarine !important;
+  border-radius: 10px;
+}
+
+.btn-primary, .btn-danger{
+  background-color: #00cc88 !important;
+  color: darkslategray !important;
+  border: none !important;
+}
+
+.btn-link{
+  color: darkslategray !important;
+}
+.delete{
+  margin-left: 15px;
+  margin-bottom: 15px;
+  border-style: solid !important;
+  border-color: darkgoldenrod !important;
+}
+
+.dropdown-menu{
+  background-color: #00cc88 !important;
+}
+
+.dropdown-item{
+  background-color: #00cc88 !important;
+  border-radius: 10px !important;
+  border-style: solid !important;
+  border-color: darkslategray !important;
+}

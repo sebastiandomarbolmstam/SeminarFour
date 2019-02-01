@@ -29,15 +29,11 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        error_log('hit');
         $comment = $request->isMethod('put') ? Comment::findOrFail($request->comment_id) : new Comment;
-
         $comment->id = $request->input('comment_id');
-        $comment->recipe = 'Swedish Meatballs';
-        $comment->uid = 'sillsune';//auth()->user()->name;
-        //$comment->uid = $request->input('uid');
+        $comment->recipe = $request->isMethod('put') ? $comment->recipe : $request->input('recipe');
+        $comment->uid = $request->input('uid');
         $comment->message = $request->input('message');
-        //$comment->recipe = $request->input('recipe');
 
         if($comment->save()){
             return new CommentResource($comment);

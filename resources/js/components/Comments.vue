@@ -7,10 +7,11 @@
             </div>
             <button class="btn btn-light btn-block" type="submit">Save</button>
         </form>
+        
         <nav aria-label="Page navigation example">
             <ul class="pagination">
                 <li v-bind:class="[{disabled: !pagination.prev_page_url}]" class="page-item">
-                    <a class="page-link" href="#" @click="fetchComments(pagination.prev_page_url)">
+                    <a class="page-link" href="#" @click="fetchComments(recipe, pagination.prev_page_url)">
                         Previous
                     </a>
                 </li>
@@ -20,7 +21,7 @@
                     </a>
                 </li>
                 <li v-bind:class="[{disabled: !pagination.next_page_url}]" class="page-item">
-                    <a class="page-link" href="#" @click="fetchComments(pagination.next_page_url)">
+                    <a class="page-link" href="#" @click="fetchComments(recipe, pagination.next_page_url)">
                         Next
                     </a>
                 </li>
@@ -30,21 +31,21 @@
             <h3>{{ comment.uid }}</h3>
             <p>{{ comment.message }}</p>
             <hr>
-            <button @click="deleteComment(comment.id)" class="btn btn-danger">Delete</button>
-            <button @click="editComment(comment)" class="btn btn-warning mb-2">Edit</button>
+            <button v-if="user == comment.uid" @click="deleteComment(comment.id)" class="btn btn-danger">Delete</button>
+            <button v-if="user == comment.uid" @click="editComment(comment)" class="btn btn-warning mb-2">Edit</button>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    props: ['recipe'],
+    props: ['recipe', 'user'],
     data() {
         return{
             comments: [],
             comment: {
                 id: '',
-                uid: '',
+                uid: this.user,
                 message: '',
                 recipe: this.recipe
             },
@@ -60,10 +61,10 @@ export default {
 
     methods: {
         
-        fetchComments(recipe) {
+        fetchComments(recipe, page_url) {
             let vm = this;
-            //page_url = page_url || 'api/comments'
-            fetch(`api/comments/${recipe}`)
+            page_url = page_url || `api/comments/${recipe}`;
+            fetch(page_url)
                 .then(res => res.json())
                 .then(res => {
                     this.comments = res.data;
@@ -91,9 +92,11 @@ export default {
                 .then(res => res.json())
                 .then(data => {
                     alert('Comment has been removed!');
-                    this.fetchComments();
+                    this.fetchComments(this.recipe);
                 })
                 .catch(err => console.log(err));
+                
+                
             }
         },
 
@@ -111,7 +114,7 @@ export default {
                     this.comment.message = '';
                     this.comment.recipe = '';
                     alert('Comment added!');
-                    this.fetchComments();
+                    this.fetchComments(this.recipe);
                 })
                 .catch(err => console.log(err));
             } else {
@@ -128,7 +131,7 @@ export default {
                     this.comment.recipe = '';
                     alert('Comment updated!');
                     this.edit = false;
-                    this.fetchComments();
+                    this.fetchComments(this.recipe);
                 })
             }
         },

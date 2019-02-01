@@ -42,8 +42,20 @@
                 <li class="ins-li">Sprinkle the icing sugar on the pancakes and serve with maple syrup and berries or other condiments you prefer.</li>
             </ul>
         </div>
-        <div class="container">
-                <comments></comments>
+        <div class="comment-container">
+            @guest
+                <guest :recipe="'{{$title}}'"></guest>
+            @else
+                <comments :recipe="'{{$title}}'" :user="'{{Auth::user()->name}}'"></comments>
+            @endguest
         </div>
+        
+
+        
+        <!--@if(Auth::user())
+            <div class="comment-container">
+                <comments :recipe="'{{$title}}'" :user="'{{Auth::user()->name}}'"></comments>
+            </div>
+        @endif-->
     </div>
 @endsection

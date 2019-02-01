@@ -21,7 +21,10 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('comments', require('./components/Comments.vue').default);
-Vue.component('navbar', require('./components/NavBar.vue').default);
+Vue.component('topborder', require('./components/TopBorder.vue').default);
+Vue.component('login', require('./components/Login.vue').default);
+Vue.component('guest', require('./components/GuestComments.vue').default);
+Vue.component('logout', require('./components/Logout.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

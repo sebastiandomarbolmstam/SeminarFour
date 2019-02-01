@@ -15,3 +15,7 @@ Route::get('/', 'PagesController@index');
 Route::get('/calendar', 'PagesController@calendar');
 Route::get('/meatballs', 'PagesController@meatballs');
 Route::get('/pancakes', 'PagesController@pancakes');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
